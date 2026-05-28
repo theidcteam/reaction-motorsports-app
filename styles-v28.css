@@ -1,0 +1,1656 @@
+
+:root {
+  --bg: #050505;
+  --panel: #111114;
+  --panel2: #18181b;
+  --line: #2a2a2e;
+  --muted: #a1a1aa;
+  --soft: #d4d4d8;
+  --red: #dc2626;
+  --orange: #f97316;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #000; color: #fff; font-family: Arial, Helvetica, sans-serif; }
+body { min-height: 100vh; }
+button, a { font-family: inherit; }
+.phone {
+  max-width: 460px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--bg);
+  position: relative;
+  overflow-x: hidden;
+  border-left: 1px solid #18181b;
+  border-right: 1px solid #18181b;
+}
+.screen { display: none; min-height: 100vh; padding-bottom: 92px; }
+.screen.active { display: block; }
+.hero {
+  position: relative;
+  height: 375px;
+  overflow: hidden;
+  background: #000;
+}
+.hero img.hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero:after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, #050505 0%, rgba(0,0,0,.78) 42%, rgba(0,0,0,.2) 100%);
+}
+.topbar {
+  position: absolute; z-index: 2; left: 20px; right: 20px; top: 18px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.rm-logo { max-width: 205px; max-height: 54px; object-fit: contain; }
+.menu-pill {
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(0,0,0,.55);
+  color: #fff;
+  border-radius: 999px;
+  padding: 9px 12px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.hero-copy { position: absolute; z-index: 2; bottom: 24px; left: 20px; right: 20px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  background: var(--red);
+  border: 1px solid #ef4444;
+  border-radius: 999px;
+  padding: 7px 11px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.hero-logo { display: block; max-width: 275px; max-height: 112px; object-fit: contain; margin: 16px 0 10px; }
+.hero-copy h1 { font-size: 45px; line-height: .88; text-transform: uppercase; margin: 14px 0 10px; letter-spacing: -0.05em; font-weight: 1000; }
+.hero-copy p { color: var(--soft); font-size: 14px; line-height: 1.45; max-width: 340px; margin: 0; }
+.quick {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 18px 18px 8px;
+}
+.quick button {
+  background: var(--panel);
+  color: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 13px 6px;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.quick span { width: 8px; height: 8px; display: block; margin: 0 auto 9px; background: var(--red); border-radius: 99px; }
+.section { padding: 18px; }
+.section-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; gap: 10px; }
+.section-head h2 { margin: 0; font-size: 18px; text-transform: uppercase; font-weight: 1000; letter-spacing: .02em; }
+.section-head small { color: var(--muted); font-weight: 900; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.card-img { height: 245px; position: relative; overflow: hidden; }
+.card-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.card-img:after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, #000 0%, rgba(0,0,0,.58) 50%, rgba(0,0,0,.04) 100%); }
+.card-labels { position: absolute; z-index: 2; top: 14px; left: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+.card-labels span { background: rgba(0,0,0,.7); border: 1px solid rgba(255,255,255,.16); border-radius: 999px; padding: 7px 10px; color: white; font-size: 10px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+.card-labels span:first-child { background: var(--red); border-color: #ef4444; }
+.card-title { position: absolute; z-index: 2; left: 18px; right: 18px; bottom: 18px; }
+.event-logo { max-width: 190px; max-height: 52px; object-fit: contain; display: block; margin-bottom: 13px; }
+.card-title h3 { font-size: 27px; line-height: .95; letter-spacing: -.04em; text-transform: uppercase; margin: 0; font-weight: 1000; }
+.card-title p { color: var(--soft); font-size: 13px; font-weight: 700; margin: 8px 0 0; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; padding: 14px; }
+.stat, .tile {
+  background: #050505;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 12px;
+}
+.stat small, .tile small {
+  display: block; color: #71717a; text-transform: uppercase; letter-spacing: .15em; font-size: 10px; font-weight: 900; margin-bottom: 6px;
+}
+.stat b, .tile b { font-size: 13px; line-height: 1.18; display: block; }
+.card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; padding: 0 14px 14px; }
+.btn {
+  border: none;
+  background: var(--red);
+  color: #fff;
+  border-radius: 17px;
+  padding: 14px 8px;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  font-size: 10px;
+  font-weight: 1000;
+  text-decoration: none;
+  text-align: center;
+}
+.btn.secondary { background: #050505; border: 1px solid #3f3f46; }
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+.panel h2 { margin: 0 0 14px; font-size: 18px; text-transform: uppercase; font-weight: 1000; }
+.note { background: #050505; border: 1px solid var(--line); border-radius: 18px; padding: 14px; color: var(--soft); font-size: 14px; line-height: 1.45; margin: 12px 0 0; }
+.filters { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 12px; }
+.filter {
+  border: 1px solid var(--line); background: var(--panel); color: #fff;
+  border-radius: 999px; padding: 10px 13px; text-transform: uppercase;
+  font-size: 10px; letter-spacing: .15em; font-weight: 1000; white-space: nowrap;
+}
+.filter.active { background: var(--red); border-color: #ef4444; }
+.rows { border-top: 1px solid var(--line); }
+.row { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; border-bottom: 1px solid var(--line); padding: 13px 0; }
+.row span:first-child { color: #71717a; font-size: 10px; text-transform: uppercase; letter-spacing: .15em; font-weight: 900; }
+.row span:last-child { text-align: right; font-size: 14px; font-weight: 800; line-height: 1.35; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.sponsor-strip { display: flex; gap: 11px; overflow-x: auto; padding: 3px 0 2px; }
+.sponsor-card {
+  min-width: 118px; height: 66px; background: #000;
+  border: 1px solid #333; border-radius: 18px; display: flex;
+  align-items: center; justify-content: center; padding: 12px;
+}
+.sponsor-card img { max-width: 98px; max-height: 42px; object-fit: contain; }
+.sponsor-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.sponsor-grid .sponsor-card { width: 100%; min-width: 0; height: 78px; }
+.gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.gallery-grid img { width: 100%; height: 132px; object-fit: cover; border-radius: 20px; border: 1px solid var(--line); }
+.gallery-grid img.big { grid-column: span 2; height: 210px; }
+.screen-title {
+  padding: 54px 18px 12px;
+  background: linear-gradient(to bottom, #131316, #050505);
+  border-bottom: 1px solid var(--line);
+}
+.screen-title h1 { margin: 0; font-size: 34px; line-height: .95; text-transform: uppercase; font-weight: 1000; letter-spacing: -.04em; }
+.screen-title p { color: var(--muted); margin: 10px 0 0; font-size: 14px; line-height: 1.4; }
+.detail-hero { height: 320px; }
+.nav {
+  position: fixed; left: 50%; transform: translateX(-50%); bottom: 0;
+  max-width: 460px; width: 100%; z-index: 99;
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  background: rgba(0,0,0,.94); border-top: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+  padding: 12px 6px 14px;
+}
+.nav button {
+  background: none; border: 0; color: #71717a; font-size: 9px; font-weight: 1000; letter-spacing: .12em; text-transform: uppercase;
+}
+.nav button.active { color: #fff; }
+.nav i { display: block; width: 8px; height: 8px; border-radius: 99px; background: #3f3f46; margin: 0 auto 8px; }
+.nav button.active i { background: var(--red); }
+.empty { color: var(--muted); font-size: 14px; line-height: 1.45; padding: 18px; border: 1px solid var(--line); border-radius: 18px; background: #050505; }
+@media (min-width: 800px) {
+  body { background: radial-gradient(circle at top, #202024, #000); }
+  .phone { box-shadow: 0 0 80px rgba(0,0,0,.65); }
+}
+
+
+/* v3 fix: event-card brand logos were overpowering and overlapping titles.
+   Cards now use brand/type pills only. Logos stay for hero/detail areas. */
+.card-title .event-logo {
+  display: none !important;
+}
+
+.card-title h3 {
+  max-width: 92%;
+  font-size: 30px;
+  line-height: 0.95;
+}
+
+.card-title {
+  bottom: 24px;
+}
+
+.card-img {
+  height: 260px;
+}
+
+
+/* v4 gateway refinements */
+.hero-copy .hero-logo {
+  filter: drop-shadow(0 4px 18px rgba(0,0,0,.55));
+}
+
+button img {
+  pointer-events:none;
+}
+
+
+/* v5 homepage refinements */
+
+.hero:after {
+  background: linear-gradient(
+    to top,
+    rgba(5,5,5,.72) 0%,
+    rgba(0,0,0,.38) 45%,
+    rgba(0,0,0,.12) 100%
+  );
+}
+
+.topbar {
+  top: 26px;
+}
+
+.hero-copy {
+  text-shadow: 0 2px 10px rgba(0,0,0,.45);
+}
+
+.hero-copy p {
+  color: rgba(255,255,255,.88);
+  font-size: 18px;
+}
+
+.hero-logo {
+  filter: drop-shadow(0 4px 18px rgba(0,0,0,.35));
+}
+
+button[onclick^="openBrand"] {
+  transition: transform .18s ease;
+}
+
+button[onclick^="openBrand"]:hover {
+  transform: translateY(-2px);
+}
+
+button[onclick^="openBrand"] div::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,.52),
+    rgba(0,0,0,.10)
+  );
+}
+
+button[onclick^="openBrand"] img {
+  opacity: .96 !important;
+}
+
+
+
+/* v6 dramatic homepage brightness changes */
+
+.hero {
+  background:#0d0d0d !important;
+}
+
+.hero:after {
+  background: linear-gradient(
+    to top,
+    rgba(5,5,5,.45) 0%,
+    rgba(0,0,0,.12) 45%,
+    rgba(0,0,0,.02) 100%
+  ) !important;
+}
+
+.hero-copy {
+  bottom: 28px !important;
+}
+
+.hero-copy p {
+  font-size: 20px !important;
+  color: #ffffff !important;
+}
+
+button[onclick^="openBrand"] {
+  border: 2px solid rgba(255,255,255,.22) !important;
+  box-shadow: 0 12px 32px rgba(0,0,0,.45);
+}
+
+button[onclick^="openBrand"] div::after {
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,.28),
+    rgba(0,0,0,.02)
+  ) !important;
+}
+
+button[onclick^="openBrand"] img {
+  opacity: 1 !important;
+  filter: brightness(1.18) contrast(1.04);
+}
+
+
+
+/* v7 arcade / video-game style homepage */
+
+body {
+  background:
+    radial-gradient(circle at 20% 10%, rgba(220,38,38,.35), transparent 28%),
+    radial-gradient(circle at 80% 20%, rgba(34,197,94,.32), transparent 30%),
+    radial-gradient(circle at 55% 75%, rgba(168,85,247,.32), transparent 30%),
+    #030303 !important;
+}
+
+.phone {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,0)),
+    #050505 !important;
+}
+
+.hero {
+  background:
+    radial-gradient(circle at top left, rgba(239,68,68,.55), transparent 36%),
+    radial-gradient(circle at top right, rgba(34,197,94,.45), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(168,85,247,.42), transparent 34%),
+    #050505 !important;
+}
+
+.hero img.hero-img {
+  opacity: .72 !important;
+  filter: brightness(1.45) saturate(1.35) contrast(1.08) !important;
+}
+
+.hero:after {
+  background:
+    linear-gradient(to top, rgba(5,5,5,.30) 0%, rgba(0,0,0,.04) 45%, rgba(0,0,0,.00) 100%) !important;
+}
+
+.menu-pill {
+  background: rgba(0,0,0,.44) !important;
+  border: 2px solid rgba(255,255,255,.65) !important;
+  color: white !important;
+  box-shadow: 0 0 18px rgba(255,255,255,.18);
+}
+
+.hero-copy {
+  bottom: 22px !important;
+}
+
+.hero-copy .hero-logo,
+.hero-copy img.hero-logo {
+  filter:
+    drop-shadow(0 0 10px rgba(255,255,255,.22))
+    drop-shadow(0 8px 20px rgba(0,0,0,.60)) !important;
+}
+
+.hero-copy p {
+  color: #fff !important;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: 14px !important;
+  font-weight: 1000 !important;
+  text-shadow: 0 2px 14px rgba(0,0,0,.85);
+}
+
+button[onclick^="openBrand"] {
+  border-radius: 28px !important;
+  border: 2px solid rgba(255,255,255,.38) !important;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.08),
+    0 16px 32px rgba(0,0,0,.55),
+    inset 0 0 38px rgba(255,255,255,.08) !important;
+  background: #111 !important;
+}
+
+button[onclick="openBrand('DriftNWA')"] {
+  box-shadow:
+    0 0 28px rgba(239,68,68,.36),
+    0 16px 32px rgba(0,0,0,.55) !important;
+}
+
+button[onclick="openBrand('GripNWA')"] {
+  box-shadow:
+    0 0 28px rgba(34,197,94,.36),
+    0 16px 32px rgba(0,0,0,.55) !important;
+}
+
+button[onclick="openBrand('Tōge')"] {
+  box-shadow:
+    0 0 28px rgba(168,85,247,.42),
+    0 16px 32px rgba(0,0,0,.55) !important;
+}
+
+button[onclick^="openBrand"] div::after {
+  background:
+    linear-gradient(to right, rgba(0,0,0,.10), rgba(0,0,0,.00)),
+    linear-gradient(to top, rgba(0,0,0,.20), rgba(0,0,0,.00)) !important;
+}
+
+button[onclick^="openBrand"] div > img:first-child {
+  opacity: 1 !important;
+  filter: brightness(1.42) saturate(1.45) contrast(1.05) !important;
+}
+
+button[onclick^="openBrand"] div > div img {
+  filter:
+    drop-shadow(0 0 8px rgba(255,255,255,.4))
+    drop-shadow(0 6px 16px rgba(0,0,0,.75)) !important;
+}
+
+.nav {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.07), rgba(0,0,0,.96)),
+    rgba(0,0,0,.96) !important;
+  border-top: 1px solid rgba(255,255,255,.14) !important;
+}
+
+.nav button.active i {
+  box-shadow: 0 0 14px var(--red);
+}
+
+
+
+/* v8 arcade launcher homepage */
+
+:root{
+  --drift:#ff00a8;
+  --grip:#00d9ff;
+  --toge:#72ff00;
+}
+
+.hero {
+  min-height:100vh;
+}
+
+.hero img.hero-img{
+  opacity: .92 !important;
+  filter: brightness(1.18) saturate(1.28) contrast(1.02) !important;
+}
+
+.hero:after{
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,.52) 0%,
+      rgba(0,0,0,.12) 45%,
+      rgba(0,0,0,.02) 100%
+    ) !important;
+}
+
+.hero-copy{
+  bottom:24px !important;
+}
+
+.hero-logo{
+  max-width:340px !important;
+  max-height:140px !important;
+}
+
+.brand-launcher{
+  display:flex;
+  gap:14px;
+  margin-top:18px;
+}
+
+.brand-tile{
+  flex:1;
+  height:118px;
+  border-radius:28px;
+  background:rgba(0,0,0,.58);
+  backdrop-filter: blur(8px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:2px solid rgba(255,255,255,.12);
+  overflow:hidden;
+}
+
+.brand-tile img{
+  width:72%;
+  max-height:72px;
+  object-fit:contain;
+}
+
+.brand-tile.drift{
+  border-color:rgba(255,0,168,.72);
+  box-shadow:
+    0 0 24px rgba(255,0,168,.45),
+    inset 0 0 18px rgba(255,0,168,.18);
+}
+
+.brand-tile.grip{
+  border-color:rgba(0,217,255,.72);
+  box-shadow:
+    0 0 24px rgba(0,217,255,.45),
+    inset 0 0 18px rgba(0,217,255,.18);
+}
+
+.brand-tile.toge{
+  border-color:rgba(114,255,0,.72);
+  box-shadow:
+    0 0 24px rgba(114,255,0,.45),
+    inset 0 0 18px rgba(114,255,0,.18);
+}
+
+.hero-copy p{
+  font-size:15px !important;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  font-weight:900;
+}
+
+.nav button.active{
+  color:white !important;
+}
+
+
+
+/* v9 actual arcade launcher home screen + brand color system */
+
+:root {
+  --brand-drift: #ff00a8;
+  --brand-grip: #00d9ff;
+  --brand-toge: #72ff00;
+}
+
+/* HOME SCREEN ONLY */
+.home-launch {
+  min-height: 100vh !important;
+  height: 100vh !important;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+
+.home-launch .home-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .98 !important;
+  filter: brightness(1.36) saturate(1.45) contrast(1.08) !important;
+}
+
+.home-launch::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 12%, rgba(0,217,255,.28), transparent 30%),
+    radial-gradient(circle at 82% 22%, rgba(255,0,168,.26), transparent 28%),
+    radial-gradient(circle at 70% 82%, rgba(114,255,0,.20), transparent 30%),
+    linear-gradient(to bottom, rgba(0,0,0,.12), rgba(0,0,0,.08) 45%, rgba(0,0,0,.64) 100%) !important;
+  z-index: 1;
+}
+
+.home-launch-content {
+  position: relative;
+  z-index: 2;
+  height: 100vh;
+  padding: 28px 22px 104px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.home-season {
+  align-self: flex-end;
+  border: 2px solid rgba(255,255,255,.75);
+  border-radius: 999px;
+  padding: 9px 14px;
+  background: rgba(0,0,0,.38);
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 1000;
+  box-shadow: 0 0 18px rgba(0,217,255,.25);
+}
+
+.home-brand {
+  text-align: center;
+  margin-top: 44px;
+}
+
+.home-brand img {
+  width: 82%;
+  max-width: 340px;
+  filter:
+    drop-shadow(0 0 10px rgba(255,255,255,.30))
+    drop-shadow(0 8px 22px rgba(0,0,0,.8));
+}
+
+.home-brand .tagline {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-weight: 900;
+  text-shadow: 0 2px 14px rgba(0,0,0,.9);
+}
+
+.home-picker {
+  width: 100%;
+}
+
+.home-picker h2 {
+  text-align: center;
+  margin: 0 0 18px;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  font-weight: 1000;
+  text-shadow: 0 2px 14px rgba(0,0,0,.95);
+}
+
+.home-picker h2::after {
+  content: "";
+  display: block;
+  width: 42px;
+  height: 3px;
+  margin: 12px auto 0;
+  background: var(--brand-grip);
+  box-shadow: 0 0 18px var(--brand-grip);
+}
+
+.brand-launcher {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px !important;
+  margin-top: 0 !important;
+}
+
+.brand-tile {
+  height: 112px !important;
+  min-height: 112px !important;
+  border-radius: 28px !important;
+  border-width: 3px !important;
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,.08), rgba(0,0,0,.88) 72%),
+    #050505 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 12px !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+.brand-tile::after,
+.brand-tile div::after,
+button[onclick^="openBrand"] div::after {
+  display: none !important;
+  content: none !important;
+}
+
+.brand-tile img {
+  width: 86% !important;
+  max-width: 112px !important;
+  max-height: 78px !important;
+  object-fit: contain !important;
+  opacity: 1 !important;
+  filter:
+    brightness(1.28)
+    drop-shadow(0 0 10px rgba(255,255,255,.38))
+    drop-shadow(0 7px 14px rgba(0,0,0,.9)) !important;
+}
+
+.brand-tile.drift {
+  border-color: var(--brand-drift) !important;
+  box-shadow:
+    0 0 18px rgba(255,0,168,.75),
+    inset 0 0 24px rgba(255,0,168,.22),
+    0 18px 36px rgba(0,0,0,.72) !important;
+}
+
+.brand-tile.grip {
+  border-color: var(--brand-grip) !important;
+  box-shadow:
+    0 0 18px rgba(0,217,255,.75),
+    inset 0 0 24px rgba(0,217,255,.22),
+    0 18px 36px rgba(0,0,0,.72) !important;
+}
+
+.brand-tile.toge {
+  border-color: var(--brand-toge) !important;
+  box-shadow:
+    0 0 18px rgba(114,255,0,.75),
+    inset 0 0 24px rgba(114,255,0,.22),
+    0 18px 36px rgba(0,0,0,.72) !important;
+}
+
+/* brand colors across event UI */
+.card-labels span:first-child {
+  background: #111 !important;
+}
+
+.card[data-brand="DriftNWA"] .card-labels span:first-child,
+.filter[data-brand="DriftNWA"].active {
+  background: var(--brand-drift) !important;
+  border-color: var(--brand-drift) !important;
+  color: #fff !important;
+}
+
+.card[data-brand="GripNWA"] .card-labels span:first-child,
+.filter[data-brand="GripNWA"].active {
+  background: var(--brand-grip) !important;
+  border-color: var(--brand-grip) !important;
+  color: #001014 !important;
+}
+
+.card[data-brand="Tōge"] .card-labels span:first-child,
+.filter[data-brand="Tōge"].active {
+  background: var(--brand-toge) !important;
+  border-color: var(--brand-toge) !important;
+  color: #071100 !important;
+}
+
+.nav button.active {
+  color: var(--brand-grip) !important;
+}
+
+.nav button.active i {
+  background: var(--brand-grip) !important;
+  box-shadow: 0 0 16px var(--brand-grip) !important;
+}
+
+/* keep non-home pages normal */
+.screen-title {
+  background:
+    radial-gradient(circle at top right, rgba(0,217,255,.12), transparent 30%),
+    linear-gradient(to bottom, #131316, #050505) !important;
+}
+
+
+/* v10 fixed: chronological all-events sorting + brand-colored register buttons */
+
+.brand-register.drift {
+  background: var(--brand-drift) !important;
+  color: #fff !important;
+  box-shadow: 0 0 18px rgba(255,0,168,.52);
+}
+
+.brand-register.grip {
+  background: var(--brand-grip) !important;
+  color: #001016 !important;
+  box-shadow: 0 0 18px rgba(0,217,255,.52);
+}
+
+.brand-register.toge {
+  background: var(--brand-toge) !important;
+  color: #071100 !important;
+  box-shadow: 0 0 18px rgba(114,255,0,.52);
+}
+
+
+/* v11 image visibility changes */
+/* Remove heavy black overlays from all image areas. */
+
+.hero:after,
+.card-img:after,
+.home-launch::after {
+  background: none !important;
+}
+
+.hero img.hero-img,
+.home-launch .home-bg,
+.card-img img {
+  opacity: 1 !important;
+  filter: brightness(1.08) saturate(1.12) contrast(1.02) !important;
+}
+
+.card-title,
+.hero-copy,
+.home-brand,
+.home-picker {
+  text-shadow:
+    0 2px 8px rgba(0,0,0,.90),
+    0 0 18px rgba(0,0,0,.70);
+}
+
+.card-title h3,
+.card-title p,
+.hero-copy p,
+.home-picker h2 {
+  text-shadow:
+    0 2px 8px rgba(0,0,0,.95),
+    0 0 18px rgba(0,0,0,.75);
+}
+
+
+
+/* v12 home hero positioning refinements */
+
+.home-brand {
+  margin-top: 240px !important;
+}
+
+.home-brand .tagline {
+  margin-top: 18px !important;
+  line-height: 1.5 !important;
+  white-space: normal !important;
+}
+
+.home-brand .tagline .line1 {
+  display: block;
+}
+
+.home-brand .tagline .line2 {
+  display: block;
+  margin-top: 2px;
+}
+
+
+
+/* v13 home screen adjustment */
+/* Lower the Reaction logo and supporting copy farther down the hero image. */
+
+.home-brand {
+  margin-top: 315px !important;
+}
+
+.home-brand .tagline {
+  margin-top: 20px !important;
+}
+
+
+
+/* v15 home screen repair */
+/* Reverts the broken hard top positioning and uses bottom-based placement
+   so the Reaction logo moves lower while Pick Your Experience stays visible. */
+
+.home-launch-content {
+  position: relative !important;
+  display: block !important;
+  height: 100vh !important;
+  padding: 0 22px 96px !important;
+}
+
+.home-season {
+  position: absolute !important;
+  top: 28px !important;
+  right: 22px !important;
+}
+
+.home-brand {
+  position: absolute !important;
+  left: 22px !important;
+  right: 22px !important;
+  bottom: 275px !important;
+  margin: 0 !important;
+  text-align: center !important;
+}
+
+.home-brand img {
+  width: 66% !important;
+  max-width: 285px !important;
+}
+
+.home-brand .tagline {
+  margin-top: 14px !important;
+  line-height: 1.35 !important;
+}
+
+.home-brand .tagline .line1,
+.home-brand .tagline .line2 {
+  display: block !important;
+  white-space: nowrap !important;
+}
+
+.home-picker {
+  position: absolute !important;
+  left: 22px !important;
+  right: 22px !important;
+  bottom: 92px !important;
+}
+
+.home-picker h2 {
+  margin-bottom: 14px !important;
+}
+
+.brand-launcher {
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 12px !important;
+}
+
+.brand-tile {
+  height: 104px !important;
+  min-height: 104px !important;
+}
+
+.brand-tile img {
+  max-height: 64px !important;
+}
+
+
+
+/* v16 targeted home screen adjustments only */
+/* Keep Reaction logo position. Move tagline closer. Raise and shrink picker so buttons fit. */
+
+.home-brand .tagline {
+  margin-top: 6px !important;
+  line-height: 1.22 !important;
+}
+
+.home-picker {
+  bottom: 112px !important;
+}
+
+.home-picker h2 {
+  margin-bottom: 10px !important;
+  font-size: 16px !important;
+}
+
+.brand-tile {
+  height: 88px !important;
+  min-height: 88px !important;
+  border-radius: 22px !important;
+}
+
+.brand-tile img {
+  max-height: 54px !important;
+}
+
+
+
+/* v17 cache-busted final home spacing fix */
+
+.home-brand .tagline {
+  margin-top: 4px !important;
+  line-height: 1.15 !important;
+}
+
+.home-picker {
+  bottom: 132px !important;
+}
+
+.home-picker h2 {
+  font-size: 14px !important;
+  margin-bottom: 8px !important;
+}
+
+.brand-tile {
+  height: 76px !important;
+  min-height: 76px !important;
+  border-radius: 20px !important;
+}
+
+.brand-tile img {
+  max-height: 46px !important;
+}
+
+
+
+/* v18 only reduce button widths */
+
+.brand-launcher {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 10px !important;
+}
+
+.brand-tile {
+  flex: 0 0 29% !important;
+  max-width: 29% !important;
+}
+
+
+
+/* v19 restore v9 experience button look only */
+/* This intentionally overrides only the home brand launcher/buttons. */
+
+.brand-launcher {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 12px !important;
+  margin-top: 0 !important;
+}
+
+.brand-tile {
+  height: 112px !important;
+  min-height: 112px !important;
+  border-radius: 28px !important;
+  border-width: 3px !important;
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,.08), rgba(0,0,0,.88) 72%),
+    #050505 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 12px !important;
+  overflow: hidden !important;
+  position: relative !important;
+  flex: initial !important;
+  max-width: none !important;
+}
+
+.brand-tile::after,
+.brand-tile div::after,
+button[onclick^="openBrand"] div::after {
+  display: none !important;
+  content: none !important;
+}
+
+.brand-tile img {
+  width: 86% !important;
+  max-width: 112px !important;
+  max-height: 78px !important;
+  object-fit: contain !important;
+  opacity: 1 !important;
+  filter:
+    brightness(1.28)
+    drop-shadow(0 0 10px rgba(255,255,255,.38))
+    drop-shadow(0 7px 14px rgba(0,0,0,.9)) !important;
+}
+
+.brand-tile.drift {
+  border-color: var(--brand-drift) !important;
+  box-shadow:
+    0 0 18px rgba(255,0,168,.75),
+    inset 0 0 24px rgba(255,0,168,.22),
+    0 18px 36px rgba(0,0,0,.72) !important;
+}
+
+.brand-tile.grip {
+  border-color: var(--brand-grip) !important;
+  box-shadow:
+    0 0 18px rgba(0,217,255,.75),
+    inset 0 0 24px rgba(0,217,255,.22),
+    0 18px 36px rgba(0,0,0,.72) !important;
+}
+
+.brand-tile.toge {
+  border-color: var(--brand-toge) !important;
+  box-shadow:
+    0 0 18px rgba(114,255,0,.75),
+    inset 0 0 24px rgba(114,255,0,.22),
+    0 18px 36px rgba(0,0,0,.72) !important;
+}
+
+
+
+/* v20 hard fix: keep the three experience buttons inside the screen */
+/* This only controls the row and button boxes. It does not change the logo files. */
+
+.home-picker {
+  left: 18px !important;
+  right: 18px !important;
+  width: auto !important;
+  overflow: visible !important;
+}
+
+.brand-launcher {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+}
+
+.brand-tile {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  flex: none !important;
+  box-sizing: border-box !important;
+  height: 96px !important;
+  min-height: 96px !important;
+  padding: 10px !important;
+  border-radius: 24px !important;
+}
+
+.brand-tile img {
+  width: auto !important;
+  max-width: 92% !important;
+  max-height: 72px !important;
+  object-fit: contain !important;
+}
+
+
+
+/* v21 targeted tagline adjustment only */
+/* Move tagline closer to Reaction logo. Do not touch buttons or layout. */
+
+.home-brand .tagline {
+  margin-top: 2px !important;
+  line-height: 1.12 !important;
+}
+
+
+
+/* v22 force tagline upward only */
+/* Move Real Drivers / Real Community copy up about .5 inch. */
+
+.home-brand .tagline {
+  position: relative !important;
+  top: -48px !important;
+  margin-top: 0 !important;
+  line-height: 1.12 !important;
+}
+
+
+
+/* v23 fine adjustment only */
+/* Move tagline down 10px from v22 position */
+
+.home-brand .tagline {
+  top: -38px !important;
+}
+
+
+
+/* v25 clean rebuilt home screen */
+/* Uses unique rm-* classes so old home overrides cannot fight this layout. */
+
+:root {
+  --brand-drift: #ff00a8;
+  --brand-grip: #00d9ff;
+  --brand-toge: #72ff00;
+}
+
+html,
+body {
+  overflow-x: hidden !important;
+}
+
+.phone {
+  overflow-x: hidden !important;
+}
+
+.rm-home {
+  position: relative;
+  min-height: 100svh;
+  height: 100svh;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+  padding-bottom: 86px;
+}
+
+.rm-home-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: brightness(1.08) saturate(1.12) contrast(1.02);
+  z-index: 0;
+}
+
+.rm-season-pill {
+  position: absolute;
+  z-index: 2;
+  top: max(22px, env(safe-area-inset-top));
+  right: 18px;
+  padding: 9px 15px;
+  border: 2px solid rgba(255,255,255,.72);
+  border-radius: 999px;
+  background: rgba(0,0,0,.30);
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 1000;
+  text-transform: uppercase;
+  letter-spacing: .20em;
+  text-shadow: 0 2px 10px rgba(0,0,0,.85);
+  backdrop-filter: blur(4px);
+}
+
+.rm-home-brand {
+  position: absolute;
+  z-index: 2;
+  left: 18px;
+  right: 18px;
+  top: 54svh;
+  text-align: center;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.rm-home-brand img {
+  width: 70%;
+  max-width: 290px;
+  height: auto;
+  filter:
+    drop-shadow(0 3px 8px rgba(0,0,0,.85))
+    drop-shadow(0 0 10px rgba(255,255,255,.22));
+}
+
+.rm-tagline {
+  margin-top: -4px;
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.18;
+  font-weight: 1000;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  text-shadow:
+    0 2px 8px rgba(0,0,0,.95),
+    0 0 18px rgba(0,0,0,.75);
+}
+
+.rm-tagline span {
+  display: block;
+  white-space: nowrap;
+}
+
+.rm-experience {
+  position: absolute;
+  z-index: 3;
+  left: 18px;
+  right: 18px;
+  bottom: calc(86px + env(safe-area-inset-bottom));
+}
+
+.rm-experience h2 {
+  margin: 0 0 12px;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 1000;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  text-shadow:
+    0 2px 8px rgba(0,0,0,.95),
+    0 0 18px rgba(0,0,0,.75);
+}
+
+.rm-experience h2::after {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 4px;
+  margin: 12px auto 0;
+  background: var(--brand-grip);
+  box-shadow: 0 0 18px var(--brand-grip);
+}
+
+.rm-brand-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.rm-brand-button {
+  width: 100%;
+  min-width: 0;
+  height: 96px;
+  border-radius: 24px;
+  border: 3px solid rgba(255,255,255,.3);
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,.08), rgba(0,0,0,.90) 72%),
+    #050505;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.rm-brand-button img {
+  width: auto;
+  max-width: 92%;
+  max-height: 70px;
+  object-fit: contain;
+  filter:
+    brightness(1.25)
+    drop-shadow(0 0 9px rgba(255,255,255,.38))
+    drop-shadow(0 7px 14px rgba(0,0,0,.9));
+}
+
+.rm-drift {
+  border-color: var(--brand-drift);
+  box-shadow:
+    0 0 18px rgba(255,0,168,.75),
+    inset 0 0 24px rgba(255,0,168,.22);
+}
+
+.rm-grip {
+  border-color: var(--brand-grip);
+  box-shadow:
+    0 0 18px rgba(0,217,255,.75),
+    inset 0 0 24px rgba(0,217,255,.22);
+}
+
+.rm-toge {
+  border-color: var(--brand-toge);
+  box-shadow:
+    0 0 18px rgba(114,255,0,.75),
+    inset 0 0 24px rgba(114,255,0,.22);
+}
+
+/* iPhone 12 / small mobile refinement */
+@media (max-width: 430px) {
+  .rm-home {
+    min-height: 100svh;
+    height: 100svh;
+  }
+
+  .rm-home-brand {
+    top: 55svh;
+  }
+
+  .rm-home-brand img {
+    width: 68%;
+    max-width: 275px;
+  }
+
+  .rm-tagline {
+    font-size: 14px;
+    letter-spacing: .20em;
+  }
+
+  .rm-experience {
+    left: 16px;
+    right: 16px;
+    bottom: calc(84px + env(safe-area-inset-bottom));
+  }
+
+  .rm-brand-row {
+    gap: 8px;
+  }
+
+  .rm-brand-button {
+    height: 90px;
+    border-radius: 22px;
+    padding: 8px;
+  }
+
+  .rm-brand-button img {
+    max-height: 66px;
+  }
+}
+
+/* shorter mobile browser viewport fallback */
+@media (max-height: 780px) {
+  .rm-home {
+    min-height: 780px;
+    height: 780px;
+  }
+
+  .rm-home-brand {
+    top: 420px;
+  }
+
+  .rm-experience {
+    bottom: 92px;
+  }
+}
+
+
+
+/* v26 confirmed batch updates */
+
+.rm-drift {
+  border-color: #ff00a8 !important;
+  box-shadow:
+    0 0 22px rgba(255,0,168,.85),
+    inset 0 0 24px rgba(255,0,168,.26) !important;
+}
+
+.rm-grip {
+  border-color: #00d9ff !important;
+  box-shadow:
+    0 0 22px rgba(0,217,255,.85),
+    inset 0 0 24px rgba(0,217,255,.26) !important;
+}
+
+.rm-toge {
+  border-color: #72ff00 !important;
+  box-shadow:
+    0 0 22px rgba(114,255,0,.85),
+    inset 0 0 24px rgba(114,255,0,.26) !important;
+}
+
+a.sponsor-card {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.sponsor-card {
+  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
+a.sponsor-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,.55);
+  box-shadow: 0 0 18px rgba(255,255,255,.16);
+}
+
+.sponsor-card-disabled {
+  opacity: .7;
+  cursor: default;
+}
+
+.sponsor-card span {
+  color: #fff;
+  font-size: 11px;
+  font-weight: 1000;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+
+/* v27 force visible home experience button colors */
+/* Targets the actual current home button classes. */
+
+.rm-brand-button.rm-drift,
+button.rm-brand-button.rm-drift {
+  border: 4px solid #ff00a8 !important;
+  box-shadow:
+    0 0 0 1px rgba(255,0,168,.65),
+    0 0 22px rgba(255,0,168,.95),
+    0 0 44px rgba(255,0,168,.45),
+    inset 0 0 24px rgba(255,0,168,.28) !important;
+}
+
+.rm-brand-button.rm-grip,
+button.rm-brand-button.rm-grip {
+  border: 4px solid #00d9ff !important;
+  box-shadow:
+    0 0 0 1px rgba(0,217,255,.65),
+    0 0 22px rgba(0,217,255,.95),
+    0 0 44px rgba(0,217,255,.45),
+    inset 0 0 24px rgba(0,217,255,.28) !important;
+}
+
+.rm-brand-button.rm-toge,
+button.rm-brand-button.rm-toge {
+  border: 4px solid #72ff00 !important;
+  box-shadow:
+    0 0 0 1px rgba(114,255,0,.65),
+    0 0 22px rgba(114,255,0,.95),
+    0 0 44px rgba(114,255,0,.45),
+    inset 0 0 24px rgba(114,255,0,.28) !important;
+}
+
+.rm-brand-button.rm-drift::before,
+.rm-brand-button.rm-grip::before,
+.rm-brand-button.rm-toge::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.rm-brand-button.rm-drift::before {
+  background: radial-gradient(circle at center, rgba(255,0,168,.22), transparent 70%);
+}
+
+.rm-brand-button.rm-grip::before {
+  background: radial-gradient(circle at center, rgba(0,217,255,.22), transparent 70%);
+}
+
+.rm-brand-button.rm-toge::before {
+  background: radial-gradient(circle at center, rgba(114,255,0,.22), transparent 70%);
+}
+
+.rm-brand-button {
+  position: relative !important;
+}
+
+.rm-brand-button img {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+
+
+/* v28 schedule section only */
+/* Chronological order plus brand color treatment. Does not touch home screen. */
+
+.schedule-title {
+  background:
+    radial-gradient(circle at top left, rgba(255,0,168,.18), transparent 32%),
+    radial-gradient(circle at top right, rgba(0,217,255,.18), transparent 32%),
+    linear-gradient(to bottom, #131316, #050505) !important;
+}
+
+.schedule-section {
+  padding-top: 20px !important;
+}
+
+.schedule-event-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 26px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.045), rgba(0,0,0,.18)),
+    #111114;
+  border: 1px solid #2a2a2e;
+  padding: 18px 16px 16px;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.schedule-accent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: #555;
+}
+
+.schedule-card-top h2 {
+  margin: 6px 0 6px;
+  font-size: 22px;
+  line-height: .98;
+  letter-spacing: -.03em;
+  text-transform: uppercase;
+  font-weight: 1000;
+}
+
+.schedule-card-top p {
+  margin: 0;
+  color: #d4d4d8;
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+.schedule-brand {
+  display: inline-flex;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 10px;
+  font-weight: 1000;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  background: #222;
+  color: #fff;
+}
+
+.schedule-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.schedule-mini-grid div {
+  background: #050505;
+  border: 1px solid #2a2a2e;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.schedule-mini-grid small {
+  display: block;
+  color: #71717a;
+  font-size: 9px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+.schedule-mini-grid b {
+  display: block;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.15;
+}
+
+.schedule-open {
+  margin-top: 13px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-weight: 1000;
+  color: #fff;
+  opacity: .9;
+}
+
+.schedule-drift {
+  border-color: rgba(255,0,168,.45);
+  box-shadow: 0 0 22px rgba(255,0,168,.12);
+}
+
+.schedule-drift .schedule-accent,
+.schedule-drift .schedule-brand {
+  background: #ff00a8;
+  color: #fff;
+}
+
+.schedule-drift .schedule-open {
+  color: #ff00a8;
+}
+
+.schedule-grip {
+  border-color: rgba(0,217,255,.45);
+  box-shadow: 0 0 22px rgba(0,217,255,.12);
+}
+
+.schedule-grip .schedule-accent,
+.schedule-grip .schedule-brand {
+  background: #00d9ff;
+  color: #001016;
+}
+
+.schedule-grip .schedule-open {
+  color: #00d9ff;
+}
+
+.schedule-toge {
+  border-color: rgba(114,255,0,.45);
+  box-shadow: 0 0 22px rgba(114,255,0,.12);
+}
+
+.schedule-toge .schedule-accent,
+.schedule-toge .schedule-brand {
+  background: #72ff00;
+  color: #071100;
+}
+
+.schedule-toge .schedule-open {
+  color: #72ff00;
+}
+

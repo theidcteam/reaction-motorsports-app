@@ -8,10 +8,10 @@ const EVENTS = [
     "eventDays": "Friday is driver load-in, parade, and car show. Tōge runs Saturday and Sunday.",
     "venue": "Great Passion Play",
     "city": "Eureka Springs, AR",
-    "address": "935 Passion Play Rd, Eureka Springs, AR",
+    "address": "935 Passion Play Rd, Eureka Springs, AR 72632",
     "driverFee": "$400",
     "spectatorFee": "$10 adults. Kids 12 & under free.",
-    "driverCap": "35 driver cap",
+    "driverCap": "30 driver cap",
     "rideAlong": "Ride-alongs available",
     "camping": "Yes",
     "food": "Yes",
@@ -44,11 +44,13 @@ const EVENTS = [
     ],
     "dateSort": "2026-11-20",
     "brandClass": "toge",
-    "venueUrl": "https://www.greatpassionplay.org"
+    "venueUrl": "https://www.greatpassionplay.org",
+    "endDate": "2026-11-22"
   },
   {
     "id": "cams-rd2",
     "brand": "DriftNWA",
+    "pitPass": "$20",
     "type": "Drift",
     "name": "Cams Acres w/235 Jackpot Rd2",
     "date": "June 20-21, 2026",
@@ -89,11 +91,13 @@ const EVENTS = [
     ],
     "dateSort": "2026-06-20",
     "brandClass": "drift",
-    "venueUrl": "https://www.camsacres.com"
+    "venueUrl": "https://www.camsacres.com",
+    "endDate": "2026-06-21"
   },
   {
     "id": "cams-rd3",
     "brand": "DriftNWA",
+    "pitPass": "$20",
     "type": "Drift",
     "name": "Cams Acres w/235 Jackpot Rd3",
     "date": "August 1-2, 2026",
@@ -134,7 +138,8 @@ const EVENTS = [
     ],
     "dateSort": "2026-08-01",
     "brandClass": "drift",
-    "venueUrl": "https://www.camsacres.com"
+    "venueUrl": "https://www.camsacres.com",
+    "endDate": "2026-08-02"
   },
   {
     "id": "grip-september",
@@ -180,7 +185,9 @@ const EVENTS = [
     ],
     "dateSort": "2026-09-12",
     "brandClass": "grip",
-    "venueUrl": ""
+    "venueUrl": "",
+    "registrationDeadline": "Wednesday before the event at 6:00 PM",
+    "endDate": "2026-09-12"
   },
   {
     "id": "grip-october",
@@ -226,19 +233,22 @@ const EVENTS = [
     ],
     "dateSort": "2026-10-17",
     "brandClass": "grip",
-    "venueUrl": ""
+    "venueUrl": "",
+    "registrationDeadline": "Wednesday before the event at 6:00 PM",
+    "endDate": "2026-10-17"
   },
   {
     "id": "drift-october",
     "brand": "DriftNWA",
+    "pitPass": "$20",
     "type": "Drift",
     "name": "October 18th w/235 Jackpot Rd4",
     "date": "October 18, 2026",
-    "eventDays": "Rd4 235 Jackpot comp. $100 cash buy-in. Pit pass ride-along option available.",
+    "eventDays": "Rd4 235 Jackpot comp. $100 cash buy-in. Pit pass $20, ride alongs available.",
     "venue": "Drake Field",
     "city": "Fayetteville, AR",
     "address": "317 W Ernest Lancaster Dr, Fayetteville, AR 72701",
-    "driverFee": "$75",
+    "driverFee": "$90",
     "spectatorFee": "$5 adults. Kids 12 & under free.",
     "driverCap": "50 driver cap",
     "rideAlong": "$20 Pit Pass",
@@ -272,7 +282,8 @@ const EVENTS = [
     ],
     "dateSort": "2026-10-18",
     "brandClass": "drift",
-    "venueUrl": ""
+    "venueUrl": "",
+    "endDate": "2026-10-18"
   }
 ];
 const SPONSOR_LOGOS = {

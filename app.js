@@ -7,6 +7,19 @@ function esc(str) {
   return String(str ?? "").replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
 }
 
+
+function isEventActive(event) {
+  if (!event.endDate) return true;
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  const end = new Date(event.endDate + "T23:59:59");
+  return end >= today;
+}
+
+function directionsUrl(address) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address || "")}`;
+}
+
 function sponsorCard(name) {
   const logo = SPONSOR_LOGOS[name];
   const url = SPONSOR_URLS && SPONSOR_URLS[name] ? SPONSOR_URLS[name] : "";
@@ -105,7 +118,7 @@ function homeScreen() {
 
 function eventsScreen() {
   const brands = ["All", "DriftNWA", "GripNWA", "Tōge"];
-  const list = EVENTS.filter(e => currentFilter === "All" || e.brand === currentFilter).sort((a, b) => new Date(a.dateSort) - new Date(b.dateSort));
+  const list = EVENTS.filter(isEventActive).filter(e => currentFilter === "All" || e.brand === currentFilter).sort((a, b) => new Date(a.dateSort) - new Date(b.dateSort));
   return `
     <div class="screen-title">
       <h1>Events</h1>
@@ -143,13 +156,22 @@ function detailScreen(event) {
         <div class="tile"><small>Cap</small><b>${esc(event.driverCap)}</b></div>
         <div class="tile"><small>Ride-Alongs</small><b>${esc(event.rideAlong)}</b></div>
         <div class="tile"><small>Camping</small><b>${esc(event.camping)}</b></div>
+        ${event.registrationDeadline ? `<div class="tile detail-wide"><small>Registration Deadline</small><b>${esc(event.registrationDeadline)}</b></div>` : ""}
       </div>
       <p class="note">${esc(event.eventDays)}</p>
-      <div class="card-actions" style="padding:14px 0 0;">
+      <div class="card-actions detail-actions" style="padding:14px 0 0;">
         <a class="btn brand-register ${esc(event.brandClass)}" href="${esc(event.registration)}" target="_blank" rel="noopener">Register</a>
+        <a class="btn secondary" href="${directionsUrl(event.address)}" target="_blank" rel="noopener">Directions</a>
         ${event.venueUrl
           ? `<a class="btn secondary" href="${esc(event.venueUrl)}" target="_blank" rel="noopener">Venue Website</a>`
-          : `<button class="btn secondary" onclick="go('venue')">Venue Info</button>`}
+          : ""}
+      </div>
+      <div class="panel venue-detail-panel">
+        <h2>Venue</h2>
+        <div class="rows">
+          <div class="row"><span>Venue</span><span>${esc(event.venue)}</span></div>
+          <div class="row"><span>Address</span><span>${esc(event.address)}</span></div>
+        </div>
       </div>
     </section>
     <section class="section">
@@ -162,7 +184,7 @@ function detailScreen(event) {
 
 
 function scheduleScreen() {
-  const list = [...EVENTS].sort((a, b) => new Date(a.dateSort) - new Date(b.dateSort));
+  const list = EVENTS.filter(isEventActive).sort((a, b) => new Date(a.dateSort) - new Date(b.dateSort));
 
   return `
     <div class="screen-title schedule-title">
@@ -249,7 +271,10 @@ function venueScreen() {
             <div class="tile"><small>Food</small><b>${esc(e.food)}</b></div>
           </div>
           <p class="note">${esc(e.address)}</p>
-          <div class="note">Map integration placeholder. This can be wired to Google Maps later.</div>
+          <div class="card-actions" style="padding:12px 0 0;">
+            <a class="btn secondary" href="${directionsUrl(e.address)}" target="_blank" rel="noopener">Directions</a>
+            ${e.venueUrl ? `<a class="btn secondary" href="${esc(e.venueUrl)}" target="_blank" rel="noopener">Venue Website</a>` : ""}
+          </div>
         </div>`).join("")}
     </section>
   `;

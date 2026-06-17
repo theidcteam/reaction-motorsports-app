@@ -255,6 +255,13 @@ function jackpotScreen() {
         </div>
       </div>
 
+
+      <div class="panel jackpot-panel">
+        <h2>Official Rules</h2>
+        <p class="note">Complete judging criteria, car tech rules, competition rules, payout structure and Valino contingency program.</p>
+        <a class="btn secondary" href="assets/docs/235_Jackpot_Rules.pdf" target="_blank" rel="noopener">View Complete Rules PDF</a>
+      </div>
+
       <div class="panel jackpot-panel">
         <h2>Series Rules</h2>
         <div class="rows">

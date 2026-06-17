@@ -128,6 +128,7 @@ function eventsScreen() {
       <div class="filters">
         ${brands.map(b => `<button data-brand="${b}" class="filter ${currentFilter===b?'active':''}" onclick="setFilter('${b}')">${b}</button>`).join("")}
       </div>
+      ${currentFilter === "DriftNWA" ? jackpotEntryCard() : ""}
       ${list.map(eventCard).join("")}
     </section>
   `;
@@ -182,6 +183,91 @@ function detailScreen(event) {
   `;
 }
 
+
+
+const JACKPOT_STANDINGS = [
+  { pos: 1, driver: "Curtis Mathews", points: 100 },
+  { pos: 2, driver: "Hunter Wood", points: 75 },
+  { pos: 3, driver: "Colin Carter", points: 50 },
+  { pos: 4, driver: "Geoffrey Hicks", points: 25 },
+  { pos: 5, driver: "Nick Miller", points: 15 },
+  { pos: 6, driver: "Seth Stites", points: 10 },
+  { pos: 7, driver: "Josh Hanneke", points: 5 },
+  { pos: 8, driver: "Austin Little", points: 5 },
+  { pos: 9, driver: "Cole Pearson", points: 5 }
+];
+
+function jackpotEntryCard() {
+  return `
+    <article class="jackpot-entry-card" onclick="go('jackpot')">
+      <img src="assets/logos/235_jackpot_logo.png" alt="235 Jackpot">
+      <div>
+        <h2>235 Jackpot Standings</h2>
+        <p>Current points after Round 1 — OMC.</p>
+        <span>View Championship Points</span>
+      </div>
+    </article>
+  `;
+}
+
+function jackpotScreen() {
+  return `
+    <div class="screen-title jackpot-title">
+      <button class="menu-pill" onclick="openBrand('DriftNWA')">Back to DriftNWA</button>
+      <img class="jackpot-hero-logo" src="assets/logos/235_jackpot_logo.png" alt="235 Jackpot">
+      <h1>235 Jackpot</h1>
+      <p>2026 DriftNWA 235 Jackpot Championship standings after Round 1 — OMC.</p>
+    </div>
+
+    <section class="section jackpot-section">
+      <div class="panel jackpot-panel">
+        <h2>Current Standings</h2>
+        <p class="note">After Round 1 — OMC</p>
+
+        <div class="jackpot-standings">
+          ${JACKPOT_STANDINGS.map(row => `
+            <div class="jackpot-row ${row.pos === 1 ? 'leader' : ''}">
+              <span class="jackpot-pos">${row.pos}</span>
+              <span class="jackpot-driver">${esc(row.driver)}</span>
+              <span class="jackpot-points">${row.points}</span>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+
+      <div class="panel jackpot-panel">
+        <h2>Next Round</h2>
+        <div class="jackpot-next">
+          <strong>Round 2 — Cam’s Acres</strong>
+          <span>June 20–21, 2026</span>
+          <p>Registration remains open until Thursday at 9:00 PM.</p>
+          <a class="btn brand-register drift" href="https://form.jotform.com/261115443302140" target="_blank" rel="noopener">Sign Up for Rd2</a>
+        </div>
+      </div>
+
+      <div class="panel jackpot-panel">
+        <h2>Series Schedule</h2>
+        <div class="jackpot-rounds">
+          <div class="done"><b>Round 1</b><span>OMC — Completed</span></div>
+          <div class="active"><b>Round 2</b><span>Cam’s Acres — June 20–21</span></div>
+          <div><b>Round 3</b><span>Cam’s Acres — August</span></div>
+          <div><b>Round 4</b><span>Drake Field — October Championship Round</span></div>
+        </div>
+      </div>
+
+      <div class="panel jackpot-panel">
+        <h2>Series Rules</h2>
+        <div class="rows">
+          <div class="row"><span>Tire Limit</span><span>235 max</span></div>
+          <div class="row"><span>Treadwear</span><span>300TW minimum</span></div>
+          <div class="row"><span>Buy-In</span><span>$100 cash</span></div>
+          <div class="row"><span>Nightly Payout</span><span>75% to top 3</span></div>
+          <div class="row"><span>Final Jackpot</span><span>25% retained for championship pot</span></div>
+        </div>
+      </div>
+    </section>
+  `;
+}
 
 function scheduleScreen() {
   const list = EVENTS.filter(isEventActive).sort((a, b) => new Date(a.dateSort) - new Date(b.dateSort));
@@ -289,6 +375,7 @@ function render() {
   if (currentScreen === "gallery") app.innerHTML = galleryScreen();
   if (currentScreen === "sponsors") app.innerHTML = sponsorsScreen();
   if (currentScreen === "venue") app.innerHTML = venueScreen();
+  if (currentScreen === "jackpot") app.innerHTML = jackpotScreen();
 
   document.querySelectorAll(".nav button").forEach(btn => {
     btn.classList.toggle("active", btn.dataset.nav === currentScreen || (currentScreen === "detail" && btn.dataset.nav === "events"));

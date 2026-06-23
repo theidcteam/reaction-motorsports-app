@@ -186,15 +186,23 @@ function detailScreen(event) {
 
 
 const JACKPOT_STANDINGS = [
-  { pos: 1, driver: "Curtis Mathews", points: 100 },
-  { pos: 2, driver: "Hunter Wood", points: 75 },
-  { pos: 3, driver: "Colin Carter", points: 50 },
-  { pos: 4, driver: "Geoffrey Hicks", points: 25 },
-  { pos: 5, driver: "Nick Miller", points: 15 },
-  { pos: 6, driver: "Seth Stites", points: 10 },
-  { pos: 7, driver: "Josh Hanneke", points: 5 },
-  { pos: 8, driver: "Austin Little", points: 5 },
-  { pos: 9, driver: "Cole Pearson", points: 5 }
+  { pos: 1, driver: "Curtis Mathews", points: 200 },
+  { pos: 2, driver: "Hunter Wood", points: 80 },
+  { pos: 3, driver: "Zach Ferris", points: 75 },
+  { pos: 4, driver: "Seth Stites", points: 60 },
+  { pos: 5, driver: "Colin Carter", points: 50 },
+  { pos: 6, driver: "Geoffrey Hicks", points: 35 },
+  { pos: 7, driver: "Dylan Corless", points: 25 },
+  { pos: 8, driver: "Nick Miller", points: 15 },
+  { pos: 9, driver: "Ian Trinidad", points: 10 },
+  { pos: 10, driver: "Austin Nichols", points: 10 },
+  { pos: 11, driver: "Cooper Williams", points: 5 },
+  { pos: 12, driver: "Josh Hanneke", points: 5 },
+  { pos: 13, driver: "Cole Pearson", points: 5 },
+  { pos: 14, driver: "Donnie Stebbins", points: 5 },
+  { pos: 15, driver: "Bryan Kiddy", points: 5 },
+  { pos: 16, driver: "Jon Corless", points: 5 },
+  { pos: 17, driver: "Austin Little", points: 5 }
 ];
 
 function jackpotEntryCard() {
@@ -203,7 +211,7 @@ function jackpotEntryCard() {
       <img src="assets/logos/235_jackpot_logo.png" alt="235 Jackpot">
       <div>
         <h2>235 Jackpot Standings</h2>
-        <p>Current points after Round 1 — OMC.</p>
+        <p>Current points after Round 2 — Cam’s Acres.</p>
         <span>View Championship Points</span>
       </div>
     </article>
@@ -216,13 +224,13 @@ function jackpotScreen() {
       <button class="menu-pill" onclick="openBrand('DriftNWA')">Back to DriftNWA</button>
       <img class="jackpot-hero-logo" src="assets/logos/235_jackpot_logo.png" alt="235 Jackpot">
       <h1>235 Jackpot</h1>
-      <p>2026 DriftNWA 235 Jackpot Championship standings after Round 1 — OMC.</p>
+      <p>2026 DriftNWA 235 Jackpot Championship standings after Round 3 — Cam’s Acres.</p>
     </div>
 
     <section class="section jackpot-section">
       <div class="panel jackpot-panel">
         <h2>Current Standings</h2>
-        <p class="note">After Round 1 — OMC</p>
+        <p class="note">After Round 2 — Cam’s Acres</p>
 
         <div class="jackpot-standings">
           ${JACKPOT_STANDINGS.map(row => `
@@ -238,10 +246,10 @@ function jackpotScreen() {
       <div class="panel jackpot-panel">
         <h2>Next Round</h2>
         <div class="jackpot-next">
-          <strong>Round 2 — Cam’s Acres</strong>
-          <span>June 20–21, 2026</span>
-          <p>Registration remains open until Thursday at 9:00 PM.</p>
-          <a class="btn brand-register drift" href="https://form.jotform.com/261115443302140" target="_blank" rel="noopener">Sign Up for Rd2</a>
+          <strong>Round 3 — Cam’s Acres</strong>
+          <span>August 2026</span>
+          <p>Round 3 details and registration will be announced soon.</p>
+          <a class="btn brand-register drift" href="https://form.jotform.com/261115443302140" target="_blank" rel="noopener">Round 3 Info</a>
         </div>
       </div>
 
@@ -249,8 +257,8 @@ function jackpotScreen() {
         <h2>Series Schedule</h2>
         <div class="jackpot-rounds">
           <div class="done"><b>Round 1</b><span>OMC — Completed</span></div>
-          <div class="active"><b>Round 2</b><span>Cam’s Acres — June 20–21</span></div>
-          <div><b>Round 3</b><span>Cam’s Acres — August</span></div>
+          <div class="done"><b>Round 2</b><span>Cam’s Acres — Completed</span></div>
+          <div class="active"><b>Round 3</b><span>Cam’s Acres — August</span></div>
           <div><b>Round 4</b><span>Drake Field — October Championship Round</span></div>
         </div>
       </div>

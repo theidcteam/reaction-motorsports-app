@@ -100,7 +100,7 @@ const EVENTS = [
     "pitPass": "$20",
     "type": "Drift",
     "name": "Cams Acres w/235 Jackpot Rd3",
-    "date": "August 1-2, 2026",
+    "date": "September 19–20, 2026",
     "eventDays": "Two-day drift weekend with Rd3 235 Jackpot comp. $100 cash buy-in.",
     "venue": "Cams Acres Drift Complex",
     "city": "Stuart, OK",
@@ -136,10 +136,10 @@ const EVENTS = [
       "BustaGrimes",
       "Speedemon"
     ],
-    "dateSort": "2026-08-01",
+    "dateSort": "2026-09-19",
     "brandClass": "drift",
     "venueUrl": "https://www.camsacres.com",
-    "endDate": "2026-08-02"
+    "endDate": "2026-09-20"
   },
   {
     "id": "grip-september",

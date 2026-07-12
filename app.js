@@ -247,7 +247,7 @@ function jackpotScreen() {
         <h2>Next Round</h2>
         <div class="jackpot-next">
           <strong>Round 3 — Cam’s Acres</strong>
-          <span>August 2026</span>
+          <span>September 19–20, 2026</span>
           <p>Round 3 details and registration will be announced soon.</p>
           <a class="btn brand-register drift" href="https://form.jotform.com/261115443302140" target="_blank" rel="noopener">Round 3 Info</a>
         </div>
@@ -258,7 +258,7 @@ function jackpotScreen() {
         <div class="jackpot-rounds">
           <div class="done"><b>Round 1</b><span>OMC — Completed</span></div>
           <div class="done"><b>Round 2</b><span>Cam’s Acres — Completed</span></div>
-          <div class="active"><b>Round 3</b><span>Cam’s Acres — August</span></div>
+          <div class="active"><b>Round 3</b><span>Cam’s Acres — September 19–20</span></div>
           <div><b>Round 4</b><span>Drake Field — October Championship Round</span></div>
         </div>
       </div>

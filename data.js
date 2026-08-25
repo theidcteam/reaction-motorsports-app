@@ -95,30 +95,30 @@ const EVENTS = [
     "endDate": "2026-06-21"
   },
   {
-    "id": "cams-rd3",
+    "id": "drift-september-rd3",
     "brand": "DriftNWA",
     "pitPass": "$20",
     "type": "Drift",
-    "name": "Cams Acres w/235 Jackpot Rd3",
-    "date": "September 19–20, 2026",
-    "eventDays": "Two-day drift weekend with Rd3 235 Jackpot comp. $100 cash buy-in.",
-    "venue": "Cams Acres Drift Complex",
-    "city": "Stuart, OK",
-    "address": "E1570 Rd, Stuart, OK 74570",
-    "driverFee": "$200",
-    "spectatorFee": "$10 adults. Kids 12 & under free.",
-    "driverCap": "60 driver cap",
-    "rideAlong": "Ride-alongs available",
-    "camping": "Yes",
+    "name": "September 13th w/235 Jackpot Rd3",
+    "date": "September 13, 2026",
+    "eventDays": "235 Jackpot comp entry is $100 CASH, paid the morning of the event.",
+    "venue": "Drake Field",
+    "city": "Fayetteville, AR",
+    "address": "317 W Ernest Lancaster Dr, Fayetteville, AR 72701",
+    "driverFee": "$75",
+    "spectatorFee": "$5 adults. Kids 12 & under free.",
+    "driverCap": "50 driver cap",
+    "rideAlong": "$20 Pit Pass",
+    "camping": "No",
     "food": "Yes",
     "vendors": "Yes",
-    "registration": "https://form.jotform.com/261244611306144",
+    "registration": "https://form.jotform.com/262254756147159",
     "schedule": {
-      "Driver Gate": "7:00 AM Sat / Sun",
-      "Drivers Meeting": "8:30 AM Sat / Sun",
-      "Spectator Gate": "9:00 AM Sat / Sun",
-      "Track Hot": "9:00 AM Sat / Sun",
-      "Event Ends": "10:00 PM Sat / 4:00 PM Sun"
+      "Driver Gate": "8:00 AM",
+      "Drivers Meeting": "9:00 AM",
+      "Spectator Gate": "9:00 AM",
+      "Track Hot": "9:30 AM",
+      "Event Ends": "5:00 PM"
     },
     "logo": "assets/logos/DriftNWA_Logo_White.svg",
     "hero": "assets/photos/drift_hero_2.jpg",
@@ -136,10 +136,10 @@ const EVENTS = [
       "BustaGrimes",
       "Speedemon"
     ],
-    "dateSort": "2026-09-19",
+    "dateSort": "2026-09-13",
     "brandClass": "drift",
-    "venueUrl": "https://www.camsacres.com",
-    "endDate": "2026-09-20"
+    "venueUrl": "",
+    "endDate": "2026-09-13"
   },
   {
     "id": "grip-september",
@@ -193,8 +193,8 @@ const EVENTS = [
     "id": "grip-october",
     "brand": "GripNWA",
     "type": "AutoX",
-    "name": "October 17th Event",
-    "date": "October 17, 2026",
+    "name": "October 24th Event",
+    "date": "October 24, 2026",
     "eventDays": "AutoX event at Drake Field.",
     "venue": "Drake Field",
     "city": "Fayetteville, AR",
@@ -231,24 +231,24 @@ const EVENTS = [
       "BustaGrimes",
       "Speedemon"
     ],
-    "dateSort": "2026-10-17",
+    "dateSort": "2026-10-24",
     "brandClass": "grip",
     "venueUrl": "",
     "registrationDeadline": "Wednesday before the event at 6:00 PM",
-    "endDate": "2026-10-17"
+    "endDate": "2026-10-24"
   },
   {
     "id": "drift-october",
     "brand": "DriftNWA",
     "pitPass": "$20",
     "type": "Drift",
-    "name": "October 18th w/235 Jackpot Rd4",
-    "date": "October 18, 2026",
-    "eventDays": "Rd4 235 Jackpot comp. $100 cash buy-in. Pit pass $20, ride alongs available.",
+    "name": "October 25th w/235 Jackpot Rd4",
+    "date": "October 25, 2026",
+    "eventDays": "235 Jackpot comp entry is $100 CASH, paid the morning of the event.",
     "venue": "Drake Field",
     "city": "Fayetteville, AR",
     "address": "317 W Ernest Lancaster Dr, Fayetteville, AR 72701",
-    "driverFee": "$90",
+    "driverFee": "$75",
     "spectatorFee": "$5 adults. Kids 12 & under free.",
     "driverCap": "50 driver cap",
     "rideAlong": "$20 Pit Pass",
@@ -280,10 +280,10 @@ const EVENTS = [
       "BustaGrimes",
       "Speedemon"
     ],
-    "dateSort": "2026-10-18",
+    "dateSort": "2026-10-25",
     "brandClass": "drift",
     "venueUrl": "",
-    "endDate": "2026-10-18"
+    "endDate": "2026-10-25"
   }
 ];
 const SPONSOR_LOGOS = {
